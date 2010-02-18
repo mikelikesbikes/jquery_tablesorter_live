@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>index</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+  <script src="jquery-1.3.2.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.tablesorter.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.tablesorter.live.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+    jQuery(function($) {
+      $("#myTable").tablesorter({
+        headers: {
+          0: {
+            sorter: 'text-select'
+          },
+          1: {
+            sorter: 'checkbox'
+          },
+          2: {
+            sorter: 'radio'
+          },
+          3: {
+            sorter: 'radio'
+          }, 
+          4: {
+            sorter: 'text-input'
+          }
+        },
+        widgets: ['live-inputs']
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+  <table id="myTable" class="tablesorter">
+    <thead>
+      <tr>
+        <th>Select (text values)</th>
+        <th>Checkbox</th>
+        <th>Radio (exclusive)</th>
+        <th>Radio (non-exclusive)</th>
+        <th>Text Input (non-numeric)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <select name="some_name" id="some_name">
+            <option value="option1" selected="selected">option1</option>
+            <option value="option2">option2</option>
+            <option value="option3">option3</option>
+          </select>
+        </td>
+        <td>
+          <label for="dogs">Dogs</label><input type="checkbox" name="animal[]" value="dogs" id="dogs" />
+        </td>
+        <td>
+          <label for="favorite_dogs">Favorite</label><input type="radio" name="favorite" value="dogs" id="favorite_dogs" />
+        </td>
+        <td>
+          <label for="male_dog">Male</label><input type="radio" name="male_dog" value="true" id="male_dog" />
+          <label for="female_dog">Female</label><input type="radio" name="male_dog" value="false" id="female_dog" />
+        </td>
+        <td>
+          <input type="text" name="name[1]" value="" id="name_1" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select name="some_name" id="some_name">
+            <option value="option1">option1</option>
+            <option value="option2">option2</option>
+            <option value="option3" selected="selected">option3</option>
+          </select>
+        </td>
+        <td>
+          <label for="cats">Cats</label><input type="checkbox" name="animals[]" value="cats" id="cats" />
+        </td>
+        <td>
+          <label for="favorite_cats">Favorite</label><input type="radio" name="favorite" value="cats" id="favorite_cats" />
+        </td>
+        <td>
+          <label for="male_cat">Male</label><input type="radio" name="male_cat" value="true" id="male_cat" />
+          <label for="female_cat">Female</label><input type="radio" name="male_cat" value="false" id="female_cat" />
+        </td>
+        <td>
+          <input type="text" name="name[2]" value="" id="name_2" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select name="some_name" id="some_name">
+            <option value="option1">option1</option>
+            <option value="option2" selected="selected">option2</option>
+            <option value="option3">option3</option>
+          </select>
+        </td>
+        <td>
+          <label for="birds">Birds</label><input type="checkbox" name="animals[]" value="birds" id="birds">
+        </td>
+        <td>
+          <label for="favorite_birds">Favorite</label><input type="radio" name="favorite" value="birds" id="favorite_birds" />
+        </td>
+        <td>
+          <label for="male_bird">Male</label><input type="radio" name="male_bird" value="true" id="male_bird" />
+          <label for="female_bird">Female</label><input type="radio" name="male_bird" value="false" id="female_bird" />
+        </td>
+        <td>
+          <input type="text" name="name[3]" value="" id="name_3" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <select name="some_name" id="some_name">
+            <option value="option1" selected="selected">option1</option>
+            <option value="option2">option2</option>
+            <option value="option3">option3</option>
+          </select>
+        </td>
+        <td>
+          <label for="ligers">Ligers</label><input type="checkbox" name="animals[]" value="ligers" id="ligers">
+        </td>
+        <td>
+          <label for="favorite_ligers">Favorite</label><input type="radio" name="favorite" value="ligers" id="favorite_ligers">
+        </td>
+        <td>
+          <label for="male_liger">Male</label><input type="radio" name="male_liger" value="true" id="male_liger" />
+          <label for="female_liger">Female</label><input type="radio" name="male_liger" value="false" id="female_liger" />
+        </td>
+        <td>
+          <input type="text" name="name[4]" value="" id="name_4" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</body>
+</html>
