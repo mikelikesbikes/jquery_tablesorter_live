@@ -52,12 +52,26 @@ jQuery(function($) {
     id: "live-inputs",
     format: function(table) {
       if(table.config.debug) { var time = new Date(); }
-      $(table).find(":input")
-        .unbind("change.tablesorter-live-inputs")
-        .bind("change.tablesorter-live-inputs", function() {
-          $(this).closest("table").trigger("update").trigger("appendCache");
+      
+      $(table).bind("sortStart.tablesorter_live", function() {
+        var table = $(this);
+        if(table.data("tablesorter_live_dirty")) {
+          debugger;
+          if(table[0].config.debug) { var time = new Date(); }
+
+          table.removeData("tablesorter_live_dirty")
+            .trigger("update")
+            .trigger("appendCache");
+            
+          if(table[0].config.debug) { $.tablesorter.benchmark("Updated/AppendCache to cleanup dirty table", time); }        
+        }
+      }).find(":input")
+        .unbind("change.tablesorter_live")
+        .bind("change.tablesorter_live", function() {
+          $(this).closest("table").data("tablesorter_live_dirty", true);
       });
-      if(table.config.debug) { $.tablesorter.benchmark("Applied Live Select", time); }
+      
+      if(table.config.debug) { $.tablesorter.benchmark("Applied Live Widget", time); }
     }
   });	
 });

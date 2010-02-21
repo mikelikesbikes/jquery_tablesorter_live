@@ -41,7 +41,7 @@ Step 3: Wire up the column parsers (optional, auto detection for :text, :radio, 
 ## Caveats
 
 * Only supports text based input, radio/checkboxes, and text based selects. Support for most other types/combinations of form elements is coming.
-* On large tables the cache is entirely rebuilt every time an input element fires a change event. I plan to optimize this at some point, perhaps by triggering the update/appendCache events just before sorting occurs. Feel free to fork this repo if you need that functionality.
+* Updating the cache is done lazily right before sorting if the table is dirty. It is entirely possible to make this an optional setting, so that this can be optimized for the desired user experience. I've chosen lazy update for the default because it should be fast for small tables and almost certainly desirable for large tables (where building the cache is a significant overhead/performance concern).
 
 ## Contact
 
