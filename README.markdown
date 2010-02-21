@@ -20,7 +20,7 @@ Step 2: Setup the live plugin (in your application script)
     $("#myTable").tablesorter({
       widgets: ['live-inputs']
 
-Step 3: Wire up the column parsers
+Step 3: Wire up the column parsers (optional, auto detection for :text, :radio, :checkbox and select)
 
       headers: {
         0: {
@@ -41,7 +41,6 @@ Step 3: Wire up the column parsers
 ## Caveats
 
 * Only supports text based input, radio/checkboxes, and text based selects. Support for most other types/combinations of form elements is coming.
-* Parsers do not auto detect, so you have to wire them by hand. Again, support for automatic detection is coming.
 * On large tables the cache is entirely rebuilt every time an input element fires a change event. I plan to optimize this at some point, perhaps by triggering the update/appendCache events just before sorting occurs. Feel free to fork this repo if you need that functionality.
 
 ## Contact

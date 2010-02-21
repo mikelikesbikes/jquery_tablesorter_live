@@ -1,9 +1,8 @@
 jQuery(function($) {
   $.tablesorter.addParser({
     id: 'text-select',
-    is: function(s) {
-      // return false so this parser is not auto detected
-      return false;
+    is: function(s, table, node) {
+      return $(node).find("select").length > 0;
     },
     format: function(s, table, el) {
       var val = $(el).find("select").val().toLowerCase();
@@ -12,14 +11,14 @@ jQuery(function($) {
     type: 'text'
   });
   
+  // auto-detects inputs of type text in a column
   $.tablesorter.addParser({
     id: 'text-input',
-    is: function(s) {
-      // return false so this parser is not auto detected
-      return false;
+    is: function(s, table, node) {
+      return $(node).find("input:text").length > 0;
     },
     format: function(s, table, el) {
-      var val = $(el).find(":text").val().toLowerCase();
+      var val = $(el).find("input:text").val().toLowerCase();
       return val;
     },
     type: 'text'
@@ -27,12 +26,11 @@ jQuery(function($) {
   
   $.tablesorter.addParser({
     id: 'checkbox',
-    is: function(s) {
-      // return false so this parser is not auto detected
-      return false;
+    is: function(s, table, node) {
+      return $(node).find("input:checkbox").length > 0;
     },
     format: function(s, table, el) {
-      var val = ($(el).find(":checked").length > 0)? 1 : 0
+      var val = ($(el).find("input:checked").length > 0)? 1 : 0;
       return val;
     },
     type: 'numeric'
@@ -40,12 +38,11 @@ jQuery(function($) {
   
   $.tablesorter.addParser({
     id: 'radio',
-    is: function(s) {
-      // return false so this parser is not auto detected
-      return false;
+    is: function(s, table, node) {
+      return $(node).find("input:radio").length > 0;
     },
     format: function(s, table, el) {
-      var val = ($(el).find(":checked").length > 0)? 1 : 0
+      var val = ($(el).find("input:checked").length > 0)? 1 : 0;
       return val;
     },
     type: 'numeric'
